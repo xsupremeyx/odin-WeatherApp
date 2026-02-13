@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --primary-color: #4a90e2;
+  --secondary-color: #f5f5f5;
+  --text-color: #333;
+  --border-radius: 8px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eaeaea;
+}
+
+#container {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  font-family: var(--font-family);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#search-form {
+  display: flex;
+  gap: 8px;
+}
+
+#search-form input {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+}
+
+#search-form button {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: var(--border-radius);
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+
+#weather-display {
+  min-height: 120px;
+  padding: 12px;
+  background-color: white;
+  border-radius: var(--border-radius);
+}
