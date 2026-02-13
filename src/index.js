@@ -1,4 +1,9 @@
 import './styles.css';
+const elements = {
+  container: document.getElementById('weather-display'),
+  form: document.getElementById('search-form'),
+  input: document.getElementById('city-input'),
+};
 const key = '8BQC4QP8BXU2YEPGA2PEP4SUD';
 
 function processWeatherData(data) {
@@ -10,7 +15,7 @@ function processWeatherData(data) {
   };
 }
 
-async function getWeather(location) {
+async function getWeather(location, elements) {
   try {
     const response = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&contentType=json&key=${key}`
@@ -19,22 +24,33 @@ async function getWeather(location) {
       throw new Error('Location not found');
     }
     const data = await response.json();
-    console.log(processWeatherData(data));
+    const processedData = processWeatherData(data);
+    renderWeather(processedData, elements.container);
   } catch (error) {
     console.error('Error fetching weather:', error);
   }
 }
 
-const handleSearch = () => {
-  const form = document.getElementById('search-form');
-  const input = document.getElementById('city-input');
-
+const handleSearch = (elements) => {
+  const { form, input } = elements;
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const city = input.value.trim();
     if (!city) return;
-    getWeather(city);
+    getWeather(city, elements);
   });
 };
 
-handleSearch();
+function renderWeather(weather, container) {
+  container.innerHTML = '';
+  const location = document.createElement('h2');
+  const temp = document.createElement('p');
+  const condition = document.createElement('p');
+
+  location.textContent = weather.location;
+  temp.textContent = `Temperature: ${weather.temperature}°C`;
+  condition.textContent = `Condition: ${weather.condition}`;
+  container.append(location, temp, condition);
+}
+
+handleSearch(elements);
