@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -94,4 +94,201 @@ body.default {
 
 #weather-display img {
   margin-bottom: 10px;
+} */
+
+/* =========================
+   RESET & VARIABLES
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    --color-primary: #4a90e2;
+    --color-primary-hover: #357bd8;
+
+    --color-bg-card: rgba(255, 255, 255, 0.75);
+    --color-bg-inner: #ffffff;
+
+    --color-text-main: #222;
+    --color-text-muted: #666;
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+
+    --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   PAGE BACKGROUND
+========================= */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* horizontal only */
+    align-items: center;
+    /* stop vertical centering */
+    padding: 40px 16px;
+    /* breathing room */
+    font-family: var(--font-family);
+    background: #eaeaea;
+    transition: background 0.4s ease;
+}
+
+/* Weather backgrounds */
+body.clear {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+body.cloudy {
+    background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+}
+
+body.rain {
+    background: linear-gradient(135deg, #4b79a1, #283e51);
+}
+
+body.snow {
+    background: linear-gradient(135deg, #e6dada, #274046);
+}
+
+body.default {
+    background: #eaeaea;
+}
+
+/* =========================
+   MAIN APP CONTAINER
+========================= */
+#container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg-card);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-card);
+    color: var(--color-text-main);
+}
+
+/* =========================
+   HEADER
+========================= */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.app-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+#unit-toggle {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    background-color: var(--color-primary);
+    color: #fff;
+    cursor: pointer;
+}
+
+#unit-toggle:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+#main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* =========================
+   SEARCH FORM
+========================= */
+#search-form {
+    display: flex;
+    gap: 8px;
+}
+
+#search-form input {
+    flex: 1;
+    padding: 10px;
+    font-size: 0.95rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid #ccc;
+}
+
+#search-form input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+#search-form button {
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    border-radius: var(--radius-sm);
+    border: none;
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+}
+
+#search-form button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+/* =========================
+   WEATHER DISPLAY
+========================= */
+#weather-display {
+    min-height: 150px;
+    padding: 16px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-bg-inner);
+    text-align: center;
+}
+
+#weather-display img {
+    margin-bottom: 8px;
+}
+
+#weather-display h2 {
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+}
+
+#weather-display p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+}
+
+/* =========================
+   FOOTER
+========================= */
+#footer {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+#footer a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
 }

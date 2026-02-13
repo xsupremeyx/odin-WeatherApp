@@ -45,6 +45,7 @@ function updateBackground(icon) {
   else if (icon.includes('snow')) document.body.classList.add('snow');
   else if (icon.includes('cloud')) document.body.classList.add('cloudy');
   else if (icon.includes('clear')) document.body.classList.add('clear');
+  else document.body.classList.add('default');
 }
 
 function getWeatherIcon(icon) {
