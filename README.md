@@ -8,8 +8,7 @@ The UI dynamically updates based on the weather conditions.
 ---
 
 ## 🔗 Live Preview
-
-
+https://xsupremeyx.github.io/odin-WeatherApp/
 ---
 
 ## ✨ Features
