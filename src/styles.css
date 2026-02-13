@@ -17,7 +17,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #eaeaea;
 }
 
 #container {
@@ -25,10 +24,11 @@ body {
   max-width: 420px;
   padding: 20px;
   font-family: var(--font-family);
-  background-color: var(--secondary-color);
   color: var(--text-color);
   border-radius: var(--border-radius);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
 }
 
 #main {
@@ -65,4 +65,33 @@ body {
   padding: 12px;
   background-color: white;
   border-radius: var(--border-radius);
+}
+
+body.clear {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+body.cloudy {
+  background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+}
+
+body.rain {
+  background: linear-gradient(135deg, #4b79a1, #283e51);
+}
+
+body.snow {
+  background: linear-gradient(135deg, #e6dada, #274046);
+}
+
+body.default {
+  background: #eaeaea;
+}
+
+#weather-display {
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+#weather-display img {
+  margin-bottom: 10px;
 }
